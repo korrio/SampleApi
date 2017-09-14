@@ -1,4 +1,4 @@
-package com.example.trw.sampleapi.http;
+package com.example.api.http;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,7 +16,7 @@ public class HttpManager {
 
     private HttpManager() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://www.googleapis.com/blogger/v3/blogs/")
+                .baseUrl("http://chavel.me/api/public/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
