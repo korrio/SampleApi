@@ -3,6 +3,7 @@ package com.example.api.http;
 import com.example.api.dao.AddRoute;
 import com.example.api.dao.AddRouteResponse;
 import com.example.api.dao.Collection;
+import com.example.api.dao.ListRouteFeedHomeResponse;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -36,6 +37,16 @@ public interface ApiService {
                     @Field("route_longitude") String route_longitude
 
     );
+
+    @FormUrlEncoded
+    @POST("listRoutesFeedHome")
+    Call<ListRouteFeedHomeResponse> ListRouteFeedHome(
+            @Field("user_id") int user_id,
+            @Field("latitude") Double route_detail,
+            @Field("longitude") Double route_create
+    );
+
+
 
 //    public static String user_id;
 //    public static String route_detail;

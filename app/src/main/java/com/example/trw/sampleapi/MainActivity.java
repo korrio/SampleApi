@@ -8,8 +8,11 @@ import android.widget.Toast;
 
 import com.example.api.dao.AddRoute;
 import com.example.api.dao.AddRouteResponse;
+import com.example.api.dao.ListRouteFeedHomeResponse;
 import com.example.api.http.HttpManager;
 import com.example.api.dao.Collection;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -70,5 +73,39 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(t.toString());
             }
         });
+
+        Call<ListRouteFeedHomeResponse> call2 = HttpManager.getInstance().getService().ListRouteFeedHome(2,30.1,100.1);
+        call2.enqueue(new Callback<ListRouteFeedHomeResponse>() {
+            @Override
+            public void onResponse(Call<ListRouteFeedHomeResponse> call, Response<ListRouteFeedHomeResponse> response) {
+                ListRouteFeedHomeResponse dao = response.body();
+                List<ListRouteFeedHomeResponse.RouteList> list = dao.getList();
+                int listSize = list.size();
+
+                String route_ids = "";
+
+                for(int i = 0 ; i < listSize ; i++) {
+                    String route_id = list.get(i).getRoute_id();
+                    route_ids += route_id + ",";
+                }
+
+                Toast.makeText(MainActivity.this
+                        , route_ids
+                        , Toast.LENGTH_LONG)
+                        .show();
+            }
+
+            @Override
+            public void onFailure(Call<ListRouteFeedHomeResponse> call, Throwable t) {
+                Toast.makeText(MainActivity.this
+                        , t.toString()
+                        , Toast.LENGTH_SHORT)
+                        .show();
+                textView.setText(t.toString());
+            }
+        });
+
+
+
     }
 }
