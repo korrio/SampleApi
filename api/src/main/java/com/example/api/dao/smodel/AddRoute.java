@@ -1,4 +1,7 @@
-package com.example.api.dao;
+package com.example.api.dao.smodel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by korrio on 9/14/2017 AD.
@@ -18,4 +21,6 @@ public class AddRoute {
     public static String route_suggestion = "2";
     public static String route_latitude = "30";
     public static String route_longitude = "100";
+
+    public static List<AddPin> pins = new ArrayList<>();
 }

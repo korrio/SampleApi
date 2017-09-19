@@ -1,11 +1,10 @@
 package com.example.api.http;
 
-import com.example.api.dao.AddRoute;
-import com.example.api.dao.AddRouteResponse;
+import com.example.api.dao.response.AddPinResponse;
+import com.example.api.dao.response.AddRouteResponse;
 import com.example.api.dao.Collection;
-import com.example.api.dao.ListRouteFeedHomeResponse;
+import com.example.api.dao.response.ListRouteFeedHomeResponse;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,10 +13,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-
-    @GET("byurl")
-    Call<Collection> Repos(@Query("url") String url
-            , @Query("key") String Key);
 
     @FormUrlEncoded
     @POST("addRoute")
@@ -35,7 +30,18 @@ public interface ApiService {
                     @Field("route_suggestion") String route_suggestion,
                     @Field("route_latitude") String route_latitude,
                     @Field("route_longitude") String route_longitude
+    );
 
+    @FormUrlEncoded
+    @POST("addPlace")
+    Call<AddPinResponse> AddPin(
+            @Field("route_id") String route_id,
+            @Field("place_name") String place_name,
+            @Field("place_detail") String place_detail,
+            @Field("place_create") String place_create,
+            @Field("place_like") String place_like,
+            @Field("place_latitude") String place_latitude,
+            @Field("place_longitude") String place_longitude
     );
 
     @FormUrlEncoded

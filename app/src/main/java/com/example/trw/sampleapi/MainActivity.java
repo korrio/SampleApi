@@ -6,15 +6,13 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.api.dao.AddRoute;
-import com.example.api.dao.AddRouteResponse;
-import com.example.api.dao.ListRouteFeedHomeResponse;
+import com.example.api.dao.smodel.AddRoute;
+import com.example.api.dao.response.AddRouteResponse;
+import com.example.api.dao.response.ListRouteFeedHomeResponse;
 import com.example.api.http.HttpManager;
-import com.example.api.dao.Collection;
 
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        String API_KEY = "AIzaSyBDJ-humCFVkDiwM3c0nl2w0rjZV7J3Q7M";
-        String URL = "http://chavel.me/api/public/v1";
+        //String API_KEY = "AIzaSyBDJ-humCFVkDiwM3c0nl2w0rjZV7J3Q7M";
+        //String URL = "http://chavel.me/api/public/v1";
 
         Call<AddRouteResponse> call = HttpManager.getInstance().getService().AddRoute(
                 AddRoute.user_id,

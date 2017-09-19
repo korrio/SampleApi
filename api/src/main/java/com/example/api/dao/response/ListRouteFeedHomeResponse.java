@@ -1,4 +1,4 @@
-package com.example.api.dao;
+package com.example.api.dao.response;
 
 import java.util.List;
 

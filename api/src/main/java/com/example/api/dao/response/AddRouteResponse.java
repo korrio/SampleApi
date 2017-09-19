@@ -1,4 +1,4 @@
-package com.example.api.dao;
+package com.example.api.dao.response;
 
 /**
  * Created by korrio on 9/14/2017 AD.
